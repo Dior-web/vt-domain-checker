@@ -10,4 +10,6 @@ services:
       - key: PYTHON_VERSION
         value: 3.11
     postDeploy:
-      - python manage.py migrate
+  - echo "Running migrate..."
+  - python manage.py migrate || exit 1
+
