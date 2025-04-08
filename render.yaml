@@ -2,10 +2,12 @@ services:
   - type: web
     name: vt-domain-checker
     env: python
-    buildCommand: ./render-build.sh
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn vtchecker.wsgi --log-file -
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: vtchecker.settings
       - key: PYTHON_VERSION
         value: 3.11
+    postDeploy:
+      - python manage.py migrate
