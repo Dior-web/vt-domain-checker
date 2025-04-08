@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class DomainQuery(models.Model):
     domain = models.CharField(max_length=255)
@@ -9,7 +10,6 @@ class DomainQuery(models.Model):
     def __str__(self):
         return f"{self.domain} - {self.created_at.strftime('%Y-%m-%d %H:%M')}"
 
-from django.contrib.auth.models import User
 
 class DomainQuery(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # 🔥 yeni satır
