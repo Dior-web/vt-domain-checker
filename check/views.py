@@ -10,6 +10,8 @@ API_KEY = os.getenv("VT_API_KEY")
 
 
 def domain_check_view(request):
+    from django.core.management import call_command
+    call_command('migrate')
     result = None
 
     if request.method == 'POST':

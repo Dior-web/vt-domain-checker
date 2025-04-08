@@ -2,11 +2,12 @@ services:
   - type: web
     name: vt-domain-checker
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn vtchecker.wsgi --log-file -"
-    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn vtchecker.wsgi --log-file -
     envVars:
-      - key: DJANGO_SECRET_KEY
-        value: "django-insecure-c689w0rhc%kbwnb6=-!o7c8bf@fp$lcki%@(k$zc$6os0w6neg"
+      - key: DJANGO_SETTINGS_MODULE
+        value: vtchecker.settings
+      - key: PYTHON_VERSION
+        value: 3.11
     postDeploy:
       - python manage.py migrate
