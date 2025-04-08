@@ -26,7 +26,14 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "insecure-default-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+import os
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'dior-domain-checker-x314.onrender.com',  # kendi linkini buraya yaz
+]
+
 
 
 # Application definition
