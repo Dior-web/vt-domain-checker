@@ -9,5 +9,3 @@ services:
         value: vtchecker.settings
       - key: PYTHON_VERSION
         value: 3.11
-    postDeploy:
-      - python manage.py migrate
